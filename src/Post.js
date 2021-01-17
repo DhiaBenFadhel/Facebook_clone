@@ -5,12 +5,14 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import NearMeIcon from "@material-ui/icons/AccountCircle";
 import React from 'react';
 import './Post.css';
+import { useStateValue } from './StateProvider';
 function Post({profilePic, image, username, timestamp, message}) {
+    const [{ user }, dispatch] = useStateValue();
     return (
         <div className="post">
             <div className="post__top">
                 <Avatar 
-                    src={profilePic}
+                    src={user.photoURL}
                     className="post__avatar"
                 />
                 <div className="post__topInfo">
